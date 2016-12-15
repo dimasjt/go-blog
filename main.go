@@ -1,6 +1,10 @@
 package main
 
-import "github.com/gin-gonic/gin"
+import (
+	"net/http"
+
+	"github.com/gin-gonic/gin"
+)
 
 var router *gin.Engine
 
@@ -14,4 +18,8 @@ func main() {
 	initializeRoutes()
 
 	router.Run()
+}
+
+func render(c *gin.Context, templateName string, data gin.H) {
+	c.HTML(http.StatusOK, templateName, data)
 }
