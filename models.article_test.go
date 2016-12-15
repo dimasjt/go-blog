@@ -26,3 +26,12 @@ func TestGetArticleByID(t *testing.T) {
 		t.Fail()
 	}
 }
+
+func TestCreateArticle(t *testing.T) {
+	na, err := createNewArticle("New Article Title", "Content new article")
+	a, _ := getArticleByID(3)
+
+	if err != nil || na.Title != a.Title || na.Content != a.Content {
+		t.Fail()
+	}
+}

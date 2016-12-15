@@ -38,3 +38,13 @@ func newArticle(c *gin.Context) {
 		"title": "New Article",
 	})
 }
+
+func createArticle(c *gin.Context) {
+	title := c.PostForm("title")
+	content := c.PostForm("content")
+
+	if a, err := createNewArticle(title, content); err == nil {
+		articleID := strconv.Itoa(a.ID)
+		c.Redirect(http.StatusMovedPermanently, "/articles/"+articleID)
+	}
+}

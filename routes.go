@@ -7,4 +7,5 @@ func initializeRoutes() {
 
 	router.GET("/articles/:article_id", showArticle)
 
+	router.POST("/create", createArticle)
 }
