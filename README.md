@@ -5,5 +5,9 @@
 
 ```bash
 $ go install
+
+run server
 $ go-blog
 ```
+
+* Open in browser [localhost:8080](http://localhost:8080)
