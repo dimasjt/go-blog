@@ -3,6 +3,8 @@ package main
 import "github.com/gin-gonic/gin"
 
 func initializeRoutes() {
+	router.Static("uploads/", "./public/uploads")
+
 	router.GET("/", showIndexPage)
 
 	router.GET("/new", func(c *gin.Context) {
