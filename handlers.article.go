@@ -33,12 +33,6 @@ func showArticle(c *gin.Context) {
 	}
 }
 
-func newArticle(c *gin.Context) {
-	render(c, "new_article.html", gin.H{
-		"title": "New Article",
-	})
-}
-
 func createArticle(c *gin.Context) {
 	title := c.PostForm("title")
 	content := c.PostForm("content")
