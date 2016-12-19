@@ -2,6 +2,7 @@ package main
 
 import (
 	"net/http"
+	"os"
 
 	"gopkg.in/gin-gonic/gin.v1"
 )
@@ -9,7 +10,11 @@ import (
 var router *gin.Engine
 
 func main() {
-	gin.SetMode(gin.ReleaseMode)
+	if os.Getenv("GIN_ENV") == "production" {
+		gin.SetMode(gin.ReleaseMode)
+	} else {
+		gin.SetMode(gin.DebugMode)
+	}
 
 	router = gin.Default()
 
